@@ -32,7 +32,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen p-6 bg-gray-100 flex flex-col items-center">
-      <header className="text-3xl font-bold py-4">Login</header>
+        <header>
+        <h1>Log In</h1>
+      </header>
 
       <nav className="flex space-x-4 bg-white p-4 shadow-md rounded">
         <Link href="/" className="text-blue-500">Home</Link>

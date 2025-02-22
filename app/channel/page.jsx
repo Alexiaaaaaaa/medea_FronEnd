@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import './channel.css'; 
 
@@ -8,10 +10,21 @@ const Channel = () => {
     { id: 3, name: 'Canale Viaggi', description: 'Scopri destinazioni e culture da tutto il mondo.' }
   ];
 
+  const handleJoin = (channelName) => {
+    const success = Math.random() > 0.2; 
+    if (success) {
+      alert(`Iscrizione al canale "${channelName}" avvenuta correttamente!`);
+    } else {
+      alert(`Iscrizione al canale "${channelName}" non avvenuta correttamente. Riprova.`);
+    }
+  };
+
   return (
     <div className="min-h-screen p-6 bg-gray-100">
-      <header className="text-center text-3xl font-bold py-4">Benvenuto in Meedea</header>
-      
+       <header>
+        <h1>Canali</h1>
+      </header>
+
       <nav className="flex justify-center space-x-4 bg-purple-600 p-4 shadow-md">
         <Link href="/" className="text-white">Home</Link>
         <Link href="/profile" className="text-white">Profilo</Link>
@@ -41,7 +54,7 @@ const Channel = () => {
                 </td>
                 <td className="border p-2">{channel.description}</td>
                 <td className="border p-2">
-                  <button className="bg-blue-500 text-white px-3 py-1 rounded">Join</button>
+                  <button onClick={() => handleJoin(channel.name)} className="join-button">Join</button>
                 </td>
               </tr>
             ))}
